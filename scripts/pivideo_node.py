@@ -100,9 +100,9 @@ def main(args):
       
     rate.sleep()
 
-  print "Shutting down ROS Pi Camera module"
   vs.stop()
-  #cv2.destroyAllWindows()
+  print "Shutting down ROS Pi Camera module"
+  time.sleep(0.1) # wait for thread to exit
 
 if __name__ == '__main__':
   main(sys.argv)
