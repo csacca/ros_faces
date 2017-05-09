@@ -1,0 +1,5 @@
+<launch>
+  <arg name="node_name" default="node_1" />
+  <node ns="$(arg node_name)" pkg="ros_faces" type="pivideo_node.py" name="pivideo" output="screen"/>
+</launch>
+
