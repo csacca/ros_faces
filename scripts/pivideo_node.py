@@ -14,7 +14,8 @@ import cv2
 import roslib
 import rospy
 import std_msgs
-import sensor_msgs
+
+from sensor_msgs.msg import CompressedImage
 
 from cv_bridge import CvBridge, CvBridgeError
 
@@ -79,7 +80,7 @@ def main(args):
   
   bridge = CvBridge()
   
-  imgpub = rospy.Publisher("image/compressed", sensor_msgs.msg.CompressedImage, queue_size=1)
+  imgpub = rospy.Publisher("image/compressed", CompressedImage, queue_size=1)
   
   rospy.init_node('pivideo_node', anonymous=True)
 
@@ -87,7 +88,7 @@ def main(args):
 
   while not rospy.is_shutdown():
     frame = vs.read()
-    #msg = sensor_msgs.CompressedImage()
+    #msg = CompressedImage()
     #msg.header.stamp = rospy.Time.now()
     #msg.format = "png"
     #msg.data = np.array(cv2.imencode('.png', frame)[1]).tostring()
